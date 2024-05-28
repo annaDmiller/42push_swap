@@ -18,7 +18,7 @@ t_stack    *shadow_sorting(t_stack *a)
         {
             if (a->arr[ind_stack].num == temp_arr[ind_arr])
             {
-                a->arr[ind_stack].sort_ind = ind_arr;
+                a->arr[ind_stack].sort_ind = a->size - ind_arr - 1;
                 break ;
             }
         }
@@ -69,16 +69,10 @@ int    merge(int **arr, int l_ind, int r_ind, int mid_ind)
     if (!temp_arr)
         return (-1);
     merge_in_temp(arr, &temp_arr, l_ind, r_ind);
-    for (int i = 0; i <= r_ind - l_ind; i++)
-        ft_printf("'%i' ", temp_arr[i]);
-    temp_ind = r_ind - l_ind;
-    ft_printf("\n");
+    temp_ind = 0;
     lp_ind = l_ind;
     while (lp_ind <= r_ind)
-        (*arr)[lp_ind++] = temp_arr[temp_ind--];
-    for (int i = 0; i <= r_ind - l_ind; i++)
-        ft_printf("'%i' ", (*arr)[i]);
-    ft_printf("\n\n");
+        (*arr)[lp_ind++] = temp_arr[temp_ind++];
     return (free(temp_arr), 0);
 }
 

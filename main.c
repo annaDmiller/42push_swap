@@ -1,11 +1,11 @@
 #include "push_swap.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	int argc = 5;
-	char *argv[] = {"./a.out", "1", "-4", "6", "-1"};
+//	int argc = 6;
+//	char *argv[] = {"./a.out", "1", "-4", "6", "-1", "-10"};
 	if (argc == 1)
 		return (0);
 	valid_args(argc, argv);
@@ -18,7 +18,7 @@ int	main(void)
 		error_mess();
 	}
 	solution(a, b);
-#include <stdio.h>
+/*#include <stdio.h>
 	for (int i = a->ind_top; i >= 0; i--)
 	{
 		printf("%i - %i\n", a->arr[i].num, a->arr[i].sort_ind);
@@ -26,7 +26,7 @@ int	main(void)
 	}
 	printf("\n");
 //	for (int i = b->ind_top; i >= 0; i--)
-//		printf("%i\n", b->arr[i]);
+//		printf("%i\n", b->arr[i]);*/
 	return (free_stack(b), free_stack(a), 0);
 }
 
