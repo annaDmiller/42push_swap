@@ -52,16 +52,15 @@ int    merge_sort(int **arr, int l_ind, int r_ind)
         mid_ind = l_ind + (r_ind - l_ind) / 2;
         merge_sort(arr, l_ind, mid_ind);
         merge_sort(arr, mid_ind + 1, r_ind);
-        if (merge(arr, l_ind, r_ind, mid_ind) == -1)
+        if (merge(arr, l_ind, r_ind) == -1)
             return (-1);
     }
     return (0);
 }
 
-int    merge(int **arr, int l_ind, int r_ind, int mid_ind)
+int    merge(int **arr, int l_ind, int r_ind)
 {
     int lp_ind;
-    int rp_ind;
     int *temp_arr;
     int temp_ind;
 

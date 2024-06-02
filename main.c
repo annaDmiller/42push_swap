@@ -1,11 +1,11 @@
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	main(void)
 {
 	t_stack	*a;
 	t_stack	*b;
-//	int argc = 6;
-//	char *argv[] = {"./a.out", "1", "-4", "6", "-1", "-10"};
+	int argc = 14;
+	char *argv[] = {"./a.out", "5", "3", "-1", "-4", "7", "2", "100", "765", "629", "-6", "-2", "-1526", "-23"};
 	if (argc == 1)
 		return (0);
 	valid_args(argc, argv);
@@ -17,28 +17,21 @@ int	main(int argc, char **argv)
 		free_stack(a);
 		error_mess();
 	}
-	solution(a, b);
-/*#include <stdio.h>
+/*	#include <stdio.h>
 	for (int i = a->ind_top; i >= 0; i--)
 	{
 		printf("%i - %i\n", a->arr[i].num, a->arr[i].sort_ind);
 
 	}
-	printf("\n");
+	printf("\n");*/
+	solution(a, b);
+	for (int i = a->ind_top; i >= 0; i--)
+	{
+		ft_printf("%i - %i\n", a->arr[i].num, a->arr[i].sort_ind);
+
+	}
+	ft_printf("\n");
 //	for (int i = b->ind_top; i >= 0; i--)
-//		printf("%i\n", b->arr[i]);*/
+//		printf("%i\n", b->arr[i]);
 	return (free_stack(b), free_stack(a), 0);
-}
-
-void	error_mess(void)
-{
-	ft_printf("Error\n");
-	exit(1);
-}
-
-void	free_stack(t_stack *stack)
-{
-	if (stack)
-		free(stack->arr);
-	free(stack);
 }
