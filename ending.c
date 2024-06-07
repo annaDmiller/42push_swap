@@ -12,3 +12,13 @@ void	free_stack(t_stack *stack)
 		free(stack->arr);
 	free(stack);
 }
+
+void	free_arr(char **arr_args)
+{
+	int	ind_s;
+	
+	ind_s = -1;
+	while (arr_args[++ind_s])
+		free(arr_args[ind_s]);
+	free(arr_args);
+}

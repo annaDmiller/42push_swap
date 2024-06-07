@@ -1,42 +1,42 @@
 #include "push_swap.h"
 
-void	valid_args(int argc, char **argv)
+void	valid_args(int num_args, char **arr_arg)
 {
 	int	ind;
 	int	ind_c;
 
-	check_dupls(argc, argv);
-	ind = 1;
-	while (ind < argc)
+	check_dupls(num_args, arr_arg);
+	ind = 0;
+	while (ind < num_args)
 	{
 		ind_c = 0;
-		while (argv[ind][ind_c])
+		while (arr_arg[ind][ind_c])
 		{
-			if (argv[ind][ind_c] == '-')
+			if (arr_arg[ind][ind_c] == '-')
 				ind_c++;
-			if (!(ft_isdigit(argv[ind][ind_c])))
+			if (!(ft_isdigit(arr_arg[ind][ind_c])))
 				error_mess();
 			ind_c++;
 		}
 		ind++;
 	}
-	check_max_min(argc, argv);
+	check_max_min(num_args, arr_arg);
 	return ;
 }
 
-void	check_dupls(int argc, char **argv)
+void	check_dupls(int num_args, char **arr_arg)
 {
 	int	ind_arg;
 	int	ind_check_arg;
 
-	ind_arg = 1;
-	while (ind_arg < argc - 1)
+	ind_arg = 0;
+	while (ind_arg < num_args - 1)
 	{
 		ind_check_arg = ind_arg + 1;
-		while (ind_check_arg < argc)
+		while (ind_check_arg < num_args)
 		{
-			if (!(ft_strncmp(argv[ind_arg], argv[ind_check_arg], 
-				ft_strlen(argv[ind_arg]) + 1)))
+			if (!(ft_strncmp(arr_arg[ind_arg], arr_arg[ind_check_arg], 
+				ft_strlen(arr_arg[ind_arg]) + 1)))
 				error_mess();
 			ind_check_arg++;
 		}
@@ -45,20 +45,20 @@ void	check_dupls(int argc, char **argv)
 	return ;
 }
 
-void	check_max_min(int argc, char **argv)
+void	check_max_min(int num_args, char **arr_arg)
 {
 	int	ind_arg;
 
-	ind_arg = 1;
-	while (ind_arg < argc)
+	ind_arg = 0;
+	while (ind_arg < num_args)
 	{
-		if (argv[ind_arg][0] != '-')
+		if (arr_arg[ind_arg][0] != '-')
 		{
-			if (ft_strlen(argv[ind_arg]) >= 10)
-				check_pos_10_and_more(argv[ind_arg]);
+			if (ft_strlen(arr_arg[ind_arg]) >= 10)
+				check_pos_10_and_more(arr_arg[ind_arg]);
 		}
-		else if (ft_strlen(argv[ind_arg]) >= 11)
-			check_neg_11_and_more(argv[ind_arg]);
+		else if (ft_strlen(arr_arg[ind_arg]) >= 11)
+			check_neg_11_and_more(arr_arg[ind_arg]);
 		ind_arg++;
 	}
 	return ;
