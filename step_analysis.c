@@ -1,22 +1,22 @@
 #include "push_swap.h"
 
-char    *step_with_push_b(t_stack **a, t_stack **b)
+char    *step_with_push_b(t_stack **a, t_stack **b, int med)
 {
     if (!is_a_sorted(a) && !is_b_sorted(b))
         return (push_stack(b, a), "pa");
     if ((*b)->ind_top == 0)
         return (NULL);
-    return (step_without_push_b(b));
+    return (step_without_push_b(b, med));
 }
 
 char    *step_with_push_a(t_stack **a, t_stack **b, int med)
 {
     if ((*a)->arr[(*a)->ind_top].sort_ind > med)
         return (push_stack(a, b), "pb");
-    return (step_without_push_a(a));
+    return (step_without_push_a(a, med));
 }
 
-char    *step_without_push_a(t_stack **a)
+char    *step_without_push_a(t_stack **a, int med)
 {
     int sind_last;
     int sind_first;
@@ -30,14 +30,16 @@ char    *step_without_push_a(t_stack **a)
         sind_alm_last = (*a)->arr[(*a)->ind_top - 1].sort_ind;
     else
         sind_alm_last = -1;
-    if (sind_alm_last - sind_last > 0)
+    if (sind_first - sind_last > sind_first - sind_alm_last)
         return (swap_stack(a), "sa");
-    if (sind_first - sind_last > sind_alm_last - sind_last)
+    if (sind_first > med
+        || (sind_first - sind_last != 1
+        && sind_first - sind_last > sind_alm_last - sind_last))
         return (rev_rotate_stack(a), "rra");
     return (rotate_stack(a), "ra");
 }
 
-char    *step_without_push_b(t_stack **b)
+char    *step_without_push_b(t_stack **b, int med)
 {
     int sind_last;
     int sind_first;

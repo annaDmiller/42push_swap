@@ -11,14 +11,14 @@ void    printing_step(t_stack **a, t_stack **b, int med)
     if (is_div_finished(*a, med))
     {
         if ((*b)->ind_top > 0)
-            str_to_print_b = step_without_push_b(b);
+            str_to_print_b = step_without_push_b(b, med);
         str_to_print_a = step_with_push_a(a, b, med);
     }
     else
     {
         if ((*b)->ind_top >= 0)
-            str_to_print_b = step_with_push_b(a, b);
-        str_to_print_a = step_without_push_a(a);
+            str_to_print_b = step_with_push_b(a, b, med);
+        str_to_print_a = step_without_push_a(a, med);
     }
     /*num_commands += */print_steps(str_to_print_a, str_to_print_b);
 //    if (!is_sort_finished(*a))

@@ -59,7 +59,6 @@ void	rev_rotate_stack(t_stack **stack)
 	{
 		(*stack)->arr[ind].num = (*stack)->arr[ind + 1].num;
 		(*stack)->arr[ind].sort_ind = (*stack)->arr[ind + 1].sort_ind;
-
 		ind++;
 	}
 	(*stack)->arr[ind].num = temp_bot.num;

@@ -56,9 +56,9 @@ void    		solution(t_stack *a, t_stack *b);
 
 //step_analysis.c
 char    		*step_with_push_a(t_stack **a, t_stack **b, int med);
-char    		*step_with_push_b(t_stack **a, t_stack **b);
-char    		*step_without_push_a(t_stack **a);
-char    		*step_without_push_b(t_stack **b);
+char    		*step_with_push_b(t_stack **a, t_stack **b, int med);
+char    		*step_without_push_a(t_stack **a, int med);
+char    		*step_without_push_b(t_stack **b, int med);
 
 //valid_args.c
 void			valid_args(int argc, char **argv);

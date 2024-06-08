@@ -25,14 +25,9 @@ int	main(int argc, char **argv)
 		error_mess();
 	}
 	solution(a, b);
-	for (int i = a->ind_top; i >= 0; i--)
+/*	for (int i = a->ind_top; i >= 0; i--)
 	{
 		ft_printf("%i - %i\n", a->arr[i].num, a->arr[i].sort_ind);
-
-	}
-	ft_printf("\n");
-//	for (int i = b->ind_top; i >= 0; i--)
-//		printf("%i\n", b->arr[i]);*/
-//	return (free_stack(b), free_stack(a), 0);
-	return (0);
+	}*/
+	return (free_stack(b), free_stack(a), 0);
 }
