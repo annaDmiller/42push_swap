@@ -1,25 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amelniko <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/20 11:56:44 by amelniko          #+#    #+#             */
+/*   Updated: 2024/06/20 11:56:46 by amelniko         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memmove(void *mem_dest, const void *mem_src, size_t n)
 {
-	char		*dest;
-	const char	*src;
-	char		car[n];
-	size_t		index;
+	unsigned char	*dest;
+	unsigned char	*src;
+	size_t			index;
 
+	if (!mem_dest || !mem_src)
+		return (NULL);
+	dest = (unsigned char *) mem_dest;
+	src = (unsigned char *) mem_src;
 	index = 0;
-	dest = (char *) mem_dest;
-	src = (const char *) mem_src;
-	while (index < n)
+	if (mem_dest > mem_src)
 	{
-		car[index] = src[index];
-		index++;
+		index = n;
+		while (index-- > 0)
+			dest[index] = src[index];
 	}
-	index = 0;
-	while (index < n)
+	else
 	{
-		dest[index] = car[index];
-		index++;
+		while (index < n)
+		{
+			dest[index] = src[index];
+			index++;
+		}
 	}
 	return (mem_dest);
 }

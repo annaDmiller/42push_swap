@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amelniko <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/23 14:44:29 by amelniko          #+#    #+#             */
+/*   Updated: 2024/06/23 14:44:31 by amelniko         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	ft_printf(const char *str, ...)
@@ -47,11 +59,12 @@ int	find_type(va_list *pars, char format)
 		return (print_uint(pars));
 	if (format == 'p')
 		return (print_point(pars));
-	if (format == 'X' || 'x')
+	if (format == 'X' || format == 'x')
 	{
 		hex_num = (uintptr_t) va_arg(*pars, unsigned int);
 		return (print_hex(hex_num, format));
 	}
+	return (0);
 }
 
 int	print_string(va_list *pars)
@@ -102,7 +115,7 @@ int	print_uint(va_list *pars)
 	while (lim <= num)
 	{
 		len_num++;
-		lim *=10;
+		lim *= 10;
 	}
 	lim /= 10;
 	while (lim >= 1)

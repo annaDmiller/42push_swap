@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amelniko <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/21 10:31:41 by amelniko          #+#    #+#             */
+/*   Updated: 2024/06/21 10:31:43 by amelniko         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
@@ -5,7 +17,7 @@
 # include <limits.h>
 # include <unistd.h>
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -26,10 +38,10 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(char *src, const char *search, size_t len);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *mem, int let, size_t n);
-void    *ft_memcpy(void *dest_mem, const void *src_mem, size_t n);
+void	*ft_memcpy(void *dest_mem, const void *src_mem, size_t n);
 void	*ft_memmove(void *mem_dest, const void *mem_src, size_t n);
-char    *ft_strchr(char *src, int c);
-char    *ft_strrchr(char *src, int c);
+char	*ft_strchr(char *src, int c);
+char	*ft_strrchr(char *src, int c);
 void	*ft_memchr(void *mem_src, int c, size_t n);
 int		ft_memcmp(const void *mem1, const void *mem2, size_t n);
 void	*ft_calloc(size_t sztype, size_t n);
@@ -47,7 +59,7 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
-t_list *ft_lstnew(void *content);
+t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);

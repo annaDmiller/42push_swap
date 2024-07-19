@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amelniko <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/20 13:00:25 by amelniko          #+#    #+#             */
+/*   Updated: 2024/06/20 13:00:26 by amelniko         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	ft_count_str(const char *str, char car);
@@ -13,6 +25,8 @@ char	**ft_split(char const *s, char c)
 	int		index;
 	int		len_word;
 
+	if (!s)
+		return (NULL);
 	num_str = ft_count_str(s, c);
 	ret = (char **) malloc(sizeof(char *) * (num_str + 1));
 	if (ret == NULL)
@@ -44,9 +58,8 @@ static int	ft_count_str(const char *str, char car)
 	{
 		while (str[++index])
 		{
-			if (str[index] != car && str[index + 1] == car)
-				num_words++;
-			if (str[index] != car && str[index + 1] == '\0')
+			if (str[index] != car && (str[index + 1] == car
+					|| str[index + 1] == '\0'))
 				num_words++;
 		}
 	}
@@ -59,8 +72,9 @@ static int	ft_strlen_char(const char *src, char car)
 {
 	int	index;
 
-	index = -1;
-	while (src[++index] != car && src[index]) ;
+	index = 0;
+	while (src[index] != car && src[index])
+		index++;
 	return (index);
 }
 
