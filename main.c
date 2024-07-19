@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 	char	**all_args;
 	int		num_args;
 
-//	int argc = 14;
+//	int argc = 2;
 //	char *argv[] = {"./a.out", "5", "3", "-1", "-4", "7", "2", "100", "765", "629", "-6", "-2", "-1526", "-23"};
 	if (argc == 1)
 		return (0);

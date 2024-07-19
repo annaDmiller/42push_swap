@@ -39,7 +39,7 @@ char    *step_without_push_a(t_stack **a, int med)
     return (rotate_stack(a), "ra");
 }
 
-char    *step_without_push_b(t_stack **b, int med)
+char    *step_without_push_b(t_stack **b)
 {
     int sind_last;
     int sind_first;

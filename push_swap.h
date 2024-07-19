@@ -32,7 +32,6 @@ void			free_arr(char **arr_args);
 char			**create_arr_args(int argc, char **argv);
 char			*create_one_line(int argc, char **argv);
 t_stack			*create_stack(int argc, char **values);
-static size_t	count_total_len(int argc, char **argv);
 
 //operations.c
 void			swap_stack(t_stack **stack);
@@ -58,7 +57,7 @@ void    		solution(t_stack *a, t_stack *b);
 char    		*step_with_push_a(t_stack **a, t_stack **b, int med);
 char    		*step_with_push_b(t_stack **a, t_stack **b, int med);
 char    		*step_without_push_a(t_stack **a, int med);
-char    		*step_without_push_b(t_stack **b, int med);
+char    		*step_without_push_b(t_stack **b);
 
 //valid_args.c
 void			valid_args(int argc, char **argv);
@@ -66,4 +65,7 @@ void			check_dupls(int argc, char **argv);
 void			check_max_min(int argc, char **argv);
 void			check_pos_10_and_more(char *str);
 void			check_neg_11_and_more(char *str);
+
+
+void    sort_small_stack(t_stack *a, t_stack *b);
 #endif

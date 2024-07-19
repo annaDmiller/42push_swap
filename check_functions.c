@@ -4,15 +4,15 @@ int is_sort_finished(t_stack *a)
 {
     int ind_stack;
 
+    if (a->ind_top != a->size - 1)
+        return (-1);
     ind_stack = a->ind_top;
     while (ind_stack >= 0)
     {
-        if (a->arr[ind_stack]. > a->arr[ind_stack - 1].num)
+        if (a->arr[ind_stack].sort_ind != ind_stack)
             return (-1);
         ind_stack--;
     }
-    if (a->ind_top != a->size - 1)
-        return (-1);
     return (0);
 }
 

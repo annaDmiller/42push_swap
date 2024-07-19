@@ -16,23 +16,23 @@ LIBFT_DIR = libft
 
 LIBFT = ft
 
-FILES = check_functions.c ending.c initialization.c main.c operations.c print_solution.c \
-	shadow_sorting.c solution.c step_analysis.c valid_args.c
+FILES = check_functions.c ending.c initialization.c main.c operations.c \
+	shadow_sorting.c solution.c valid_args.c sorting_stack.c
 
 SRCS = $(FILES:c=o)
 
-.PHONY: all clean fclean libft
+.PHONY: all clean fclean lib
 
 all: $(NAME)
 
-$(NAME): libft comp_all $(SRCS)
+$(NAME): lib comp_all $(SRCS)
 	$(CC) $(C_FLAGS) $(SRCS) -o $(NAME) libft/libft.a
 
 comp_all: $(FILES)
 	$(CC) $(C_FLAGS) -c $(FILES)
 
-libft: $(LIBFT_DIR)
-	$(MAKE) --no-print-directory -C $(LIBFT_DIR) bonus
+lib: $(LIBFT_DIR)
+	$(MAKE) --no-print-directory -C $(LIBFT_DIR)
 
 clean: $(SRCS)
 	$(RM) $(RM_FLAGS) $(SRCS) $(LIBFT_DIR)/*.o
