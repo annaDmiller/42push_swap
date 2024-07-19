@@ -7,12 +7,12 @@ int is_sort_finished(t_stack *a)
     ind_stack = a->ind_top;
     while (ind_stack >= 0)
     {
-        if (ind_stack != a->arr[ind_stack].sort_ind)
-            return (1);
+        if (a->arr[ind_stack]. > a->arr[ind_stack - 1].num)
+            return (-1);
         ind_stack--;
     }
     if (a->ind_top != a->size - 1)
-        return (1);
+        return (-1);
     return (0);
 }
 

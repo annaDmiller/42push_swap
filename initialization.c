@@ -1,5 +1,7 @@
 #include "push_swap.h"
 
+static size_t	count_total_len(int argc, char **argv);
+
 char	**create_arr_args(int argc, char **argv)
 {
 	char	**ret_arr;
