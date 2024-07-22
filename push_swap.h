@@ -64,6 +64,11 @@ void			check_neg_11_and_more(char *str);
 int    sort_stack_three_and_less(t_stack **a);
 int 	num_not_sorted(t_stack **a);
 
+//sort_five
+int    sort_stack_five_and_less(t_stack **a, t_stack **b);
+int find_num_to_b(t_stack **a, int ind_to_search);
+void    move_to_top_num(t_stack **a, int ind_search);
+
 //push_func
 void	pa(t_stack **from_b, t_stack **to_a);
 void	pb(t_stack **from_a, t_stack **to_b);

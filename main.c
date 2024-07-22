@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	int		num_args;
 
 //	int argc = 2;
-//	char *argv[] = {"./a.out", "5", "3", "-1", "-4", "7", "2", "100", "765", "629", "-6", "-2", "-1526", "-23"};
+//	char *argv[] = {"./a.out", "2 0 3 1"};
 	if (argc == 1)
 		return (0);
 	num_args = -1;
