@@ -33,10 +33,6 @@ char			**create_arr_args(int argc, char **argv);
 char			*create_one_line(int argc, char **argv);
 t_stack			*create_stack(int argc, char **values);
 
-//print_solution.c
-void    		printing_step(t_stack **a, t_stack **b, int med);
-int				print_steps(char *str_a, char *str_b);
-
 //shadow_sorting.c
 t_stack			*shadow_sorting(t_stack *a);
 int 			*copy_arr(t_stack *a);
@@ -46,12 +42,6 @@ void    		merge_in_temp(int **arr, int **temp_arr, int l_ind, int r_ind);
 
 //solution.c
 void    		solution(t_stack *a, t_stack *b);
-
-//step_analysis.c
-char    		*step_with_push_a(t_stack **a, t_stack **b, int med);
-char    		*step_with_push_b(t_stack **a, t_stack **b, int med);
-char    		*step_without_push_a(t_stack **a, int med);
-char    		*step_without_push_b(t_stack **b);
 
 //valid_args.c
 void			valid_args(int argc, char **argv);
