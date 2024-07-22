@@ -8,7 +8,7 @@ int    sort_stack_five_and_less(t_stack **a, t_stack **b)
     if (!is_sort_finished(*a))
         return (0);
     ind = (*a)->ind_top;
-    while (ind > (*a)->size / 2)
+    while (ind > 2)
     {
         ind_search = find_num_to_b(a, ind--);
         move_to_top_num(a, ind_search);
