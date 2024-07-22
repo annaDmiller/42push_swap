@@ -10,7 +10,7 @@ void    solution(t_stack *a, t_stack *b)
     }
     if (!is_sort_finished(a))
         return ;
-//    if (a->size <= 5)
-    sort_small_stack(a, b);
+    if (a->size <= 3)
+        sort_stack_three_and_less(&a);
     return ;
 }

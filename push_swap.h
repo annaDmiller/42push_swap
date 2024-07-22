@@ -66,6 +66,7 @@ void			check_max_min(int argc, char **argv);
 void			check_pos_10_and_more(char *str);
 void			check_neg_11_and_more(char *str);
 
-
-void    sort_small_stack(t_stack *a, t_stack *b);
+//sort_three
+int    sort_stack_three_and_less(t_stack **a);
+int 	num_not_sorted(t_stack **a);
 #endif
