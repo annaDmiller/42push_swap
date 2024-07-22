@@ -33,12 +33,6 @@ char			**create_arr_args(int argc, char **argv);
 char			*create_one_line(int argc, char **argv);
 t_stack			*create_stack(int argc, char **values);
 
-//operations.c
-void			swap_stack(t_stack **stack);
-void			push_stack(t_stack **from, t_stack **to);
-void			rev_rotate_stack(t_stack **stack);
-void			rotate_stack(t_stack **stack);
-
 //print_solution.c
 void    		printing_step(t_stack **a, t_stack **b, int med);
 int				print_steps(char *str_a, char *str_b);
@@ -69,4 +63,23 @@ void			check_neg_11_and_more(char *str);
 //sort_three
 int    sort_stack_three_and_less(t_stack **a);
 int 	num_not_sorted(t_stack **a);
+
+//push_func
+void	pa(t_stack **from_b, t_stack **to_a);
+void	pb(t_stack **from_a, t_stack **to_b);
+
+//rotate_func
+void	ra(t_stack **a, int opt);
+void	rb(t_stack **b, int opt);
+void    rr(t_stack **a, t_stack **b);
+
+//rev_rotate_func
+void	rra(t_stack **a, int opt);
+void	rrb(t_stack **b, int opt);
+void    rrr(t_stack **a, t_stack **b);
+
+//swap_func
+void    sa(t_stack **a, int opt);
+void	sb(t_stack **b, int opt);
+void    ss(t_stack **a, t_stack **b);
 #endif

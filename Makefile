@@ -16,8 +16,9 @@ LIBFT_DIR = libft
 
 LIBFT = ft
 
-FILES = check_functions.c ending.c initialization.c main.c operations.c \
-	shadow_sorting.c solution.c valid_args.c sort_three.c
+FILES = check_functions.c ending.c initialization.c main.c \
+	shadow_sorting.c solution.c valid_args.c sort_three.c \
+	push_func.c rotate_func.c rev_rotate_func.c swap_func.c
 
 SRCS = $(FILES:c=o)
 

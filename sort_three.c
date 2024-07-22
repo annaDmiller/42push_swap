@@ -7,20 +7,19 @@ int    sort_stack_three_and_less(t_stack **a)
     if (!is_a_sorted(a))
         return (0);
     if ((*a)->size == 2)
-        return (swap_stack(a), ft_printf("sa\n"), 1);
+        return (sa(a, 1), 1);
     num_to_sort = num_not_sorted(a);
     if (num_to_sort == 2)
     {
-        swap_stack(a);
-        ft_printf("sa\n");
+        sa(a, 1);
         sort_stack_three_and_less(a);
     }
     if (num_to_sort == 3)
     {
         if ((*a)->arr[(*a)->ind_top].sort_ind == 1)
-            return (rev_rotate_stack(a), ft_printf("rra\n", 2));
+            return (rra(a, 1), 2);
         else
-            return (rotate_stack(a), ft_printf("ra\n"), 2);
+            return (ra(a, 1), 2);
     }
     return (1);
 }
