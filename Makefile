@@ -19,7 +19,7 @@ LIBFT = ft
 FILES = check_functions.c ending.c initialization.c main.c \
 	shadow_sorting.c solution.c valid_args.c sort_three.c \
 	push_func.c rotate_func.c rev_rotate_func.c swap_func.c \
-	sort_five.c
+	sort_five.c sort_many.c
 
 SRCS = $(FILES:c=o)
 
