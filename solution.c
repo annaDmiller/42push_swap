@@ -14,9 +14,9 @@ void    solution(t_stack *a, t_stack *b)
         sort_stack_three_and_less(&a);
     if (a->size <= 5)
         sort_stack_five_and_less(&a, &b);
-    else
+    if (a->size <= 100)
         sort_stack_many_nums(&a, &b);
-    // for (int i = a->ind_top; i >= 0; i--)
-        // ft_printf("%i\n", a->arr[i].num);
+    for (int i = a->ind_top; i >= 0; i--)
+        ft_printf("%i\n", a->arr[i].sort_ind);
     return ;
 }

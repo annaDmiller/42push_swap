@@ -1,35 +1,78 @@
 #include "push_swap.h"
 
-int find_num_chunk_from_bot(t_stack **a, int num_chunk)
+void    exec_steps_to_move_to_b(t_stack **a, t_stack **b, int steps_a, int steps_b)
 {
-    int ind;
-    int limit_ind;
-
-    ind = 0;
-    limit_ind = 20 * num_chunk;
-    while (ind < (*a)->size)
-    {
-        if ((*a)->arr[ind].sort_ind >= limit_ind
-            && (*a)->arr[ind].sort_ind < limit_ind + 20)
-            return (ind);
-        ind++;
-    }
-    return (ind);
+    if (steps_a <= 0 && steps_b <= 0)
+        return (exec_steps_rr(a, b, steps_a, steps_b));
+    if (steps_a > 0 && steps_b > 0)
+        return (exec_steps_rrr(a, b, steps_a, steps_b));
+    else
+        return (exec_dif_steps(a, b, steps_a, steps_b));
 }
 
-int find_num_chunk_from_top(t_stack **a, int num_chunk)
+void    exec_steps_rrr(t_stack **a, t_stack **b, int steps_a, int steps_b)
 {
-    int ind;
-    int limit_ind;
+    int steps_rrr;
+    int temp;
 
-    ind = (*a)->ind_top;
-    limit_ind = 20 * num_chunk;
-    while (ind >= 0)
+    steps_rrr = min_of_two(steps_a, steps_b);
+    temp = steps_rrr;
+    while (steps_rrr--)
+        rrr(a, b);
+    if (steps_a == steps_b)
+        return (pb(a, b));
+    if (!(steps_a - temp))
     {
-        if ((*a)->arr[ind].sort_ind >= limit_ind
-            && (*a)->arr[ind].sort_ind < limit_ind + 20)
-            return (ind);
-        ind--;
+        while (temp--)
+            rrb(b, 1);
+        return (pb(a, b));
     }
-    return (ind);
+    else
+    {
+        while (temp--)
+            rra(a, 1);
+        return (pb(a, b));
+    }
+}
+
+void    exec_steps_rr(t_stack **a, t_stack **b, int steps_a, int steps_b)
+{
+    int steps_rr;
+    int temp;
+
+    steps_rr = max_of_two(steps_a, steps_b);
+    temp = steps_rr;
+    while (steps_rr++)
+        rr(a, b);
+    if (steps_a == steps_b)
+        return (pb(a, b));
+    if (!(steps_a - temp))
+    {
+        while (temp++)
+            rb(b, 1);
+        return (pb(a, b));
+    }
+    else
+    {
+        while (temp++)
+            ra(a, 1);
+        return (pb(a, b));
+    }
+}
+
+void    exec_dif_steps(t_stack **a, t_stack **b, int steps_a, int steps_b)
+{
+    if (steps_a >= 0)
+        while (steps_a--)
+            rra(a, 1);
+    else if (steps_a < 0)
+        while (steps_a++)
+            ra(a, 1);
+    if (steps_b >= 0)
+        while (steps_b--)
+            rrb(b, 1);
+    else if (steps_b < 0)
+        while (steps_b++)
+            rb(b, 1);
+    return (pb(a, b));
 }

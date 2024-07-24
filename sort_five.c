@@ -38,7 +38,7 @@ void    move_to_top_num(t_stack **a, int ind_search)
 {
     if (ind_search == (*a)->ind_top)
         return ;
-    if (ind_search >= (*a)-> size / 2)
+    if (ind_search >= (*a)-> ind_top / 2)
     {
         ra(a, 1);
         move_to_top_num(a, ++ind_search);
