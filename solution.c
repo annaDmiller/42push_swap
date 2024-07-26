@@ -14,7 +14,5 @@ void    solution(t_stack *a, t_stack *b)
         sort_stack_three_and_less(&a);
     if (a->size <= 5)
         sort_stack_five_and_less(&a, &b);
-    if (a->size <= 100)
-        sort_stack_hundred_and_less(&a, &b);
     return ;
 }

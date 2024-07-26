@@ -25,20 +25,12 @@ int 			is_div_finished(t_stack *a, int med);
 int 			is_a_sorted(t_stack **a);
 int 			is_b_sorted(t_stack **b);
 
-//chunk_sorting.c
-void    exec_steps_to_move_to_b(t_stack **a, t_stack **b, int steps_a, int steps_b);
-void    exec_steps_rrr(t_stack **a, t_stack **b, int steps_a, int steps_b);
-void    exec_steps_rr(t_stack **a, t_stack **b, int steps_a, int steps_b);
-void    exec_dif_steps(t_stack **a, t_stack **b, int steps_a, int steps_b);
 
 //ending.c
 void			error_mess(void);
 void			free_stack(t_stack *stack);
 void			free_arr(char **arr_args);
 
-//find_num_of_chunk.c
-int find_num_chunk_from_bot(t_stack **a, int num_chunk);
-int find_num_chunk_from_top(t_stack **a, int num_chunk);
 
 //initialization.c
 char			**create_arr_args(int argc, char **argv);
@@ -77,13 +69,6 @@ void    		solution(t_stack *a, t_stack *b);
 int    sort_stack_five_and_less(t_stack **a, t_stack **b);
 int find_num_to_b(t_stack **a, int ind_to_search);
 void    move_to_top_num(t_stack **a, int ind_search);
-
-//sort_many.c
-int sort_stack_hundred_and_less(t_stack **a, t_stack **b);
-int move_num_chunk_to_top(t_stack **a, int num_chunk);
-int check_num_in_b(t_stack **a, t_stack **b, int steps_a);
-void    sort_chunk_in_b(t_stack **b);
-int closest_num_to_found(t_stack **b, int num_to_push);
 
 //sort_three.c
 int    sort_stack_three_and_less(t_stack **a);
