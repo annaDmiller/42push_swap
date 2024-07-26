@@ -16,22 +16,6 @@ int is_sort_finished(t_stack *a)
     return (0);
 }
 
-int is_div_finished(t_stack *a, int med)
-{
-    int ind_stack;
-
-    if (!is_a_sorted(&a))
-        return (0);
-    ind_stack = a->ind_top;
-    while (ind_stack >= 0)
-    {
-        if (a->arr[ind_stack].sort_ind > med)
-            return (1);
-        ind_stack--;
-    }
-    return (0);
-}
-
 int is_b_sorted(t_stack **b)
 {
     int ind_b;

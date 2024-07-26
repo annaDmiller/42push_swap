@@ -16,19 +16,9 @@ void    solution(t_stack *a, t_stack *b)
         sort_stack_three_and_less(&a);
     if (a->size <= 5)
         sort_stack_five_and_less(&a, &b);
-    if (a->size <= 100)
+    else if (a->size > 5)
     {
-        size_chunk = a->size / 5;
-        if (a->size % 5)
-            size_chunk++;
-        sort_stack_hundred_and_less(&a, &b, size_chunk);
-    }
-        if (a->size <= 500)
-    {
-        size_chunk = a->size / 11;
-        if (a->size % 11)
-            size_chunk++;
-        sort_stack_hundred_and_less(&a, &b, size_chunk);
+
     }       
     return ;
 }
