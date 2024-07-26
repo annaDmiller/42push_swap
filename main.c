@@ -12,15 +12,15 @@
 
 #include "push_swap.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
 	char	**all_args;
 	int		num_args;
 
-	int argc = 2;
-	char *argv[] = {"./a.out", "50 21 49 -87 -34 41 78 -28 -88 95 66 79 -55 -53 -81"};
+//	int argc = 2;
+//	char *argv[] = {"./a.out", "50 21 49 -87 -34 41 78 -28 -88 95 66 79 -55 -53 -81"};
 	if (argc == 1)
 		return (0);
 	num_args = -1;

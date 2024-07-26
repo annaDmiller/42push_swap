@@ -1,9 +1,11 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-#include "./libft/libft.h"
-#include "./libft/ft_printf.h"
-#include <unistd.h>
-#include <stdlib.h>
+# include "./libft/libft.h"
+# include "./libft/ft_printf.h"
+# include <unistd.h>
+# include <stdlib.h>
+# define ABS(Value) (((Value) >= 0) ? (Value) : -(Value))
+
 typedef struct	s_st_num
 {
 	int			num;
@@ -77,10 +79,11 @@ int find_num_to_b(t_stack **a, int ind_to_search);
 void    move_to_top_num(t_stack **a, int ind_search);
 
 //sort_many.c
-int sort_stack_many_nums(t_stack **a, t_stack **b);
+int sort_stack_hundred_and_less(t_stack **a, t_stack **b);
 int move_num_chunk_to_top(t_stack **a, int num_chunk);
 int check_num_in_b(t_stack **a, t_stack **b, int steps_a);
 void    sort_chunk_in_b(t_stack **b);
+int closest_num_to_found(t_stack **b, int num_to_push);
 
 //sort_three.c
 int    sort_stack_three_and_less(t_stack **a);

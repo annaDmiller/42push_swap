@@ -2,7 +2,7 @@
 
 void    exec_steps_to_move_to_b(t_stack **a, t_stack **b, int steps_a, int steps_b)
 {
-    if (steps_a <= 0 && steps_b <= 0)
+    if (steps_a < 0 && steps_b < 0)
         return (exec_steps_rr(a, b, steps_a, steps_b));
     if (steps_a > 0 && steps_b > 0)
         return (exec_steps_rrr(a, b, steps_a, steps_b));
@@ -23,13 +23,13 @@ void    exec_steps_rrr(t_stack **a, t_stack **b, int steps_a, int steps_b)
         return (pb(a, b));
     if (!(steps_a - temp))
     {
-        while (temp--)
+        while (steps_b - temp++)
             rrb(b, 1);
         return (pb(a, b));
     }
     else
     {
-        while (temp--)
+        while (steps_a - temp++)
             rra(a, 1);
         return (pb(a, b));
     }
@@ -48,13 +48,13 @@ void    exec_steps_rr(t_stack **a, t_stack **b, int steps_a, int steps_b)
         return (pb(a, b));
     if (!(steps_a - temp))
     {
-        while (temp++)
+        while (steps_b - temp--)
             rb(b, 1);
         return (pb(a, b));
     }
     else
     {
-        while (temp++)
+        while (steps_a - temp--)
             ra(a, 1);
         return (pb(a, b));
     }
