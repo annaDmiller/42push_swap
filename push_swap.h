@@ -55,6 +55,8 @@ t_stack			*create_stack(int argc, char **values);
 //minor_funcs.c
 int min_of_two(int num1, int num2);
 int max_of_two(int num1, int num2);
+int max_of_stack(t_stack **stack);
+int min_of_stack(t_stack **stack);
 
 //push_func.c
 void	pa(t_stack **from_b, t_stack **to_a);

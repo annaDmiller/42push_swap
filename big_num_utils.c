@@ -24,7 +24,7 @@ int check_num_in_b(t_stack **a, t_stack **b, int steps_a)
         num_to_push = (*a)->arr[steps_a - 1].sort_ind;
     else
         num_to_push = (*a)->arr[(*a)->ind_top + steps_a].sort_ind;
-    ind_close = closest_num_to_found(b, num_to_push);
+    ind_close = b_where_to_push(b, num_to_push);
     if (ind_close >= (*b)->ind_top / 2)
         return (-((*b)->ind_top - ind_close));
     else
@@ -58,28 +58,29 @@ void    sort_chunk_in_b(t_stack **b)
     return ;
 }
 
-int closest_num_to_found(t_stack **b, int num_to_push)
+int b_where_to_push(t_stack **b, int num_to_push)
 {
-    int ind_ret;
-    int ind_b;
-    int ret;
+    int min_ind;
+    int max_ind;
+    int steps_min;
+    int steps_max;
 
-    ind_b = (*b)->ind_top;
-    ret = ABS(num_to_push - (*b)->arr[ind_b].sort_ind);
-    ind_ret = ind_b;
-    while (--ind_b >= 0)
+    min_ind = min_of_stack(b);
+    max_ind = max_of_stack(b);
+    steps_max = find_part_of_stack_num((*b)->ind_top, max_ind);
+    steps_min = find_part_of_stack_num((*b)->ind_top, min_ind);
+    if (num_to_push > (*b)->arr[max_ind].sort_ind)
+
+    if (num_to_push < (*b)->arr[min_ind].sort_ind)
     {
-        if (ret > ABS(num_to_push - (*b)->arr[ind_b].sort_ind))
-        {
-            ret = ABS(num_to_push - (*b)->arr[ind_b].sort_ind);
-            ind_ret = ind_b;
-        }
+        
     }
-    if (num_to_push - (*b)->arr[ind_ret].sort_ind > 0)
-    {
-        if (ind_ret == 0)
-            return ((*b)->ind_top);
-        return (ind_ret - 1);
-    }
-    return (ind_ret);
+}
+
+int find_part_of_stack_num(int ind_top, int ind_to_find)
+{
+    if (ind_to_find >= ind_top / 2)
+        return (-(ind_top - ind_to_find));
+    else
+        return (ind_to_find + 1);
 }
