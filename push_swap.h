@@ -72,6 +72,7 @@ void    move_to_top_num(t_stack **a, int ind_search);
 
 //sort_many.c
 int sort_many_nums(t_stack **a, t_stack **b);
+void    bit_sorting(t_stack **a, t_stack **b, int max_bits);
 
 //sort_three.c
 int    sort_stack_three_and_less(t_stack **a);

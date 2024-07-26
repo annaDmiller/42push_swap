@@ -86,7 +86,7 @@ void    merge_in_temp(int **arr, int **temp_arr, int l_ind, int r_ind)
     mid_ind = l_ind + (r_ind - l_ind) / 2;
     rp_ind = mid_ind + 1;
     temp_ind = 0;
-    while (lp_ind <  mid_ind + 1 && rp_ind < r_ind + 1 && 
+    while (lp_ind < mid_ind + 1 && rp_ind < r_ind + 1 && 
             temp_ind < r_ind - l_ind + 1)
     {
         if ((*arr)[lp_ind] < (*arr)[rp_ind])
