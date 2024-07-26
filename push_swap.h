@@ -19,8 +19,6 @@ typedef struct	s_stack
 	t_st_num	*arr;
 }				t_stack;
 
-//big_num_utils.c
-int count_max_bits(t_stack **a);
 
 //check_functions.c
 int 			is_sort_finished(t_stack *a);
@@ -36,10 +34,6 @@ void			free_arr(char **arr_args);
 char			**create_arr_args(int argc, char **argv);
 char			*create_one_line(int argc, char **argv);
 t_stack			*create_stack(int argc, char **values);
-
-//minor_funcs.c
-int min_of_two(int num1, int num2);
-int max_of_two(int num1, int num2);
 
 //push_func.c
 void	pa(t_stack **from_b, t_stack **to_a);
@@ -73,6 +67,7 @@ void    move_to_top_num(t_stack **a, int ind_search);
 //sort_many.c
 int sort_many_nums(t_stack **a, t_stack **b);
 void    bit_sorting(t_stack **a, t_stack **b, int max_bits);
+int count_max_bits(t_stack **a);
 
 //sort_three.c
 int    sort_stack_three_and_less(t_stack **a);
