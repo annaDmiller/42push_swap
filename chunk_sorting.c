@@ -2,6 +2,8 @@
 
 void    exec_steps_to_move_to_b(t_stack **a, t_stack **b, int steps_a, int steps_b)
 {
+    if (steps_a == -1 && steps_b == -1)
+        return (ss(a, b));
     if (steps_a < 0 && steps_b < 0)
         return (exec_steps_rr(a, b, steps_a, steps_b));
     if (steps_a > 0 && steps_b > 0)
@@ -66,13 +68,23 @@ void    exec_dif_steps(t_stack **a, t_stack **b, int steps_a, int steps_b)
         while (steps_a--)
             rra(a, 1);
     else if (steps_a < 0)
-        while (steps_a++)
-            ra(a, 1);
+    {
+        if (steps_a == -1)
+            sa(a, 1);
+        else
+            while (steps_a++)
+                ra(a, 1);
+    }
     if (steps_b >= 0)
         while (steps_b--)
             rrb(b, 1);
     else if (steps_b < 0)
-        while (steps_b++)
-            rb(b, 1);
+    {
+        if (steps_b == -1)
+            sb(b, 1);
+        else
+            while (steps_b++)
+                rb(b, 1);
+    }
     return (pb(a, b));
 }

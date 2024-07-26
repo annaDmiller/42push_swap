@@ -19,6 +19,13 @@ typedef struct	s_stack
 	t_st_num	*arr;
 }				t_stack;
 
+//big_num_utils.c
+int move_num_chunk_to_top(t_stack **a, int num_chunk, int size_chunk);
+int check_num_in_b(t_stack **a, t_stack **b, int steps_a);
+void    sort_chunk_in_b(t_stack **b);
+int closest_num_to_found(t_stack **b, int num_to_push);
+void    prepare_a_for_chunk(t_stack **a, int num_chunk, int size_chunk);
+
 //check_functions.c
 int 			is_sort_finished(t_stack *a);
 int 			is_div_finished(t_stack *a, int med);
@@ -37,8 +44,8 @@ void			free_stack(t_stack *stack);
 void			free_arr(char **arr_args);
 
 //find_num_of_chunk.c
-int find_num_chunk_from_bot(t_stack **a, int num_chunk);
-int find_num_chunk_from_top(t_stack **a, int num_chunk);
+int find_num_chunk_from_bot(t_stack **a, int num_chunk, int size_chunk);
+int find_num_chunk_from_top(t_stack **a, int num_chunk, int size_chunk);
 
 //initialization.c
 char			**create_arr_args(int argc, char **argv);
@@ -79,11 +86,7 @@ int find_num_to_b(t_stack **a, int ind_to_search);
 void    move_to_top_num(t_stack **a, int ind_search);
 
 //sort_many.c
-int sort_stack_hundred_and_less(t_stack **a, t_stack **b);
-int move_num_chunk_to_top(t_stack **a, int num_chunk);
-int check_num_in_b(t_stack **a, t_stack **b, int steps_a);
-void    sort_chunk_in_b(t_stack **b);
-int closest_num_to_found(t_stack **b, int num_to_push);
+int sort_stack_hundred_and_less(t_stack **a, t_stack **b, int size_chunk);
 
 //sort_three.c
 int    sort_stack_three_and_less(t_stack **a);
