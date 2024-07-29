@@ -70,11 +70,15 @@ int b_where_to_push(t_stack **b, int num_to_push)
     steps_max = find_part_of_stack_num((*b)->ind_top, max_ind);
     steps_min = find_part_of_stack_num((*b)->ind_top, min_ind);
     if (num_to_push > (*b)->arr[max_ind].sort_ind)
-
+        return (steps_min);
     if (num_to_push < (*b)->arr[min_ind].sort_ind)
     {
-        
+        if (ABS(steps_max) < ABS(steps_min))
+            return (steps_max);
+        else
+            return (steps_min);
     }
+    return (0);
 }
 
 int find_part_of_stack_num(int ind_top, int ind_to_find)
