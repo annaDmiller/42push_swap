@@ -1,37 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   initialization.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amelniko <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/03 12:07:21 by amelniko          #+#    #+#             */
+/*   Updated: 2024/08/03 12:30:48 by amelniko         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static size_t	count_total_len(int argc, char **argv);
+
+static char		*create_one_line(int argc, char **argv);
 
 char	**create_arr_args(int argc, char **argv)
 {
 	char	**ret_arr;
 	char	*args_line;
-	
+
 	args_line = create_one_line(argc, argv);
 	ret_arr = ft_split(args_line, ' ');
 	free(args_line);
 	if (!ret_arr)
 		error_mess();
 	return (ret_arr);
-}
-
-char	*create_one_line(int argc, char **argv)
-{
-	char	*ret_line;
-	int		ind_s;
-	size_t	total_len;
-
-	total_len = count_total_len(argc, argv);
-	ret_line = (char *) ft_calloc(sizeof(char), total_len);
-	if (!ret_line)
-		error_mess();
-	ind_s = 0;
-	while (++ind_s < argc)
-	{
-		ft_strlcat(ret_line, argv[ind_s], total_len);
-		ft_strlcat(ret_line, " ", total_len);
-	}
-	return (ret_line);
 }
 
 t_stack	*create_stack(int num_args, char **values)
@@ -52,6 +47,25 @@ t_stack	*create_stack(int num_args, char **values)
 		while (ind >= 0)
 			(stack->arr[++stack->ind_top]).num = ft_atoi(values[ind--]);
 	return (stack);
+}
+
+static char	*create_one_line(int argc, char **argv)
+{
+	char	*ret_line;
+	int		ind_s;
+	size_t	total_len;
+
+	total_len = count_total_len(argc, argv);
+	ret_line = (char *) ft_calloc(sizeof(char), total_len);
+	if (!ret_line)
+		error_mess();
+	ind_s = 0;
+	while (++ind_s < argc)
+	{
+		ft_strlcat(ret_line, argv[ind_s], total_len);
+		ft_strlcat(ret_line, " ", total_len);
+	}
+	return (ret_line);
 }
 
 static size_t	count_total_len(int argc, char **argv)

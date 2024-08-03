@@ -1,4 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_functions.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amelniko <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/03 12:07:21 by amelniko          #+#    #+#             */
+/*   Updated: 2024/08/03 12:07:25 by amelniko         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
+
+static void	check_dupls(int num_args, char **arr_arg);
+
+static void	check_max_min(int num_args, char **arr_arg);
+
+static void	check_pos_10_and_more(char *str);
+
+static void	check_neg_11_and_more(char *str);
 
 void	valid_args(int num_args, char **arr_arg)
 {
@@ -24,7 +44,7 @@ void	valid_args(int num_args, char **arr_arg)
 	return ;
 }
 
-void	check_dupls(int num_args, char **arr_arg)
+static void	check_dupls(int num_args, char **arr_arg)
 {
 	int	ind_arg;
 	int	ind_check_arg;
@@ -35,8 +55,8 @@ void	check_dupls(int num_args, char **arr_arg)
 		ind_check_arg = ind_arg + 1;
 		while (ind_check_arg < num_args)
 		{
-			if (!(ft_strncmp(arr_arg[ind_arg], arr_arg[ind_check_arg], 
-				ft_strlen(arr_arg[ind_arg]) + 1)))
+			if (!(ft_strncmp(arr_arg[ind_arg], arr_arg[ind_check_arg],
+						ft_strlen(arr_arg[ind_arg]) + 1)))
 				error_mess();
 			ind_check_arg++;
 		}
@@ -45,7 +65,7 @@ void	check_dupls(int num_args, char **arr_arg)
 	return ;
 }
 
-void	check_max_min(int num_args, char **arr_arg)
+static void	check_max_min(int num_args, char **arr_arg)
 {
 	int	ind_arg;
 
@@ -64,7 +84,7 @@ void	check_max_min(int num_args, char **arr_arg)
 	return ;
 }
 
-void	check_pos_10_and_more(char *str)
+static void	check_pos_10_and_more(char *str)
 {
 	if (ft_strlen(str) == 10)
 		if (str[0] <= '2' && ft_atoi(str) > 0)
@@ -72,7 +92,7 @@ void	check_pos_10_and_more(char *str)
 	error_mess();
 }
 
-void	check_neg_11_and_more(char *str)
+static void	check_neg_11_and_more(char *str)
 {
 	if (ft_strlen(str) == 11)
 		if (str[1] <= '2' && ft_atoi(str) < 0)

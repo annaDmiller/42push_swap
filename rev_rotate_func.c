@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_functions.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amelniko <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/03 12:07:21 by amelniko          #+#    #+#             */
+/*   Updated: 2024/08/03 12:07:25 by amelniko         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	rra(t_stack **a, int opt)
@@ -18,9 +30,9 @@ void	rra(t_stack **a, int opt)
 	}
 	(*a)->arr[ind].num = temp_bot.num;
 	(*a)->arr[ind].sort_ind = temp_bot.sort_ind;
-    if (opt == 1)
+	if (opt == 1)
 	{
-        ft_printf("rra\n");
+		ft_printf("rra\n");
 	}
 	return ;
 }
@@ -43,17 +55,17 @@ void	rrb(t_stack **b, int opt)
 	}
 	(*b)->arr[ind].num = temp_bot.num;
 	(*b)->arr[ind].sort_ind = temp_bot.sort_ind;
-    if (opt == 1)
+	if (opt == 1)
 	{
-        ft_printf("rrb\n");
+		ft_printf("rrb\n");
 	}
 	return ;
 }
 
-void    rrr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b)
 {
-    rra(a, 2);
-    rrb(b, 2);
-    ft_printf("rrr\n");
-    return ;
+	rra(a, 2);
+	rrb(b, 2);
+	ft_printf("rrr\n");
+	return ;
 }
